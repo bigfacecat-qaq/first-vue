@@ -18,7 +18,7 @@
                 <el-input v-model="formLabelAlign.user" />
               </el-form-item>
               <el-form-item label="Password">
-                <el-input v-model="formLabelAlign.password" />
+                <el-input v-model="formLabelAlign.password" show-password/>
               </el-form-item>
               <el-row justify="space-evenly">
                 <el-col :span="6">
