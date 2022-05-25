@@ -23,7 +23,7 @@
                 <el-row justify="space-evenly">
                   <el-col :span="6">
                     <el-button type="primary" @click="onSubmit"
-                      >Create</el-button
+                      >Login</el-button
                     >
                   </el-col>
                   <el-col :span="6">
@@ -42,6 +42,7 @@
 <script>
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
+// import { useStore } from 'vuex'
 export default {
   name: "LoginView",
   setup() {
@@ -53,6 +54,8 @@ export default {
     const onSubmit = () => {
       router.push({ path: "/home" });
     };
+    
+   
     return { formLabelAlign, onSubmit };
   },
 };
