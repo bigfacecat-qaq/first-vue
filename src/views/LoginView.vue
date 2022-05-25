@@ -1,45 +1,47 @@
 <template>
   <el-row>
     <el-col :span="24" class="form">
-    <div class="wrap">
+      <div class="wrap">
         <el-row justify="center" align="middle">
-        <el-col :span="6" class="login">
-          <el-card shadow="hover">
-            <template #header>
-              <div class="login-header">欢迎登录</div>
-            </template>
-            <el-form
-              label-position="top"
-              label-width="100px"
-              :model="formLabelAlign"
-              style="max-width: 460px"
-            >
-              <el-form-item label="User Name">
-                <el-input v-model="formLabelAlign.user" />
-              </el-form-item>
-              <el-form-item label="Password">
-                <el-input v-model="formLabelAlign.password" show-password/>
-              </el-form-item>
-              <el-row justify="space-evenly">
-                <el-col :span="6">
-                  <el-button type="primary" @click="onSubmit">Create</el-button>
-                </el-col>
-                <el-col :span="6">
-                  <el-button>Cancel</el-button>
-                </el-col>
-              </el-row>
-            </el-form>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
+          <el-col :span="6" class="login">
+            <el-card shadow="hover">
+              <template #header>
+                <div class="login-header">欢迎登录</div>
+              </template>
+              <el-form
+                label-position="top"
+                label-width="100px"
+                :model="formLabelAlign"
+                style="max-width: 460px"
+              >
+                <el-form-item label="User Name">
+                  <el-input v-model="formLabelAlign.user" />
+                </el-form-item>
+                <el-form-item label="Password">
+                  <el-input v-model="formLabelAlign.password" show-password />
+                </el-form-item>
+                <el-row justify="space-evenly">
+                  <el-col :span="6">
+                    <el-button type="primary" @click="onSubmit"
+                      >Create</el-button
+                    >
+                  </el-col>
+                  <el-col :span="6">
+                    <el-button>Sign up</el-button>
+                  </el-col>
+                </el-row>
+              </el-form>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
     </el-col>
   </el-row>
 </template>
 
 <script>
 import { reactive } from "vue";
-import {useRouter} from "vue-router"
+import { useRouter } from "vue-router";
 export default {
   name: "LoginView",
   setup() {
@@ -47,9 +49,9 @@ export default {
       user: "",
       password: "",
     });
-    const router = useRouter()
+    const router = useRouter();
     const onSubmit = () => {
-      router.push("/home");
+      router.push({ path: "/home" });
     };
     return { formLabelAlign, onSubmit };
   },
@@ -72,7 +74,7 @@ export default {
 .login-header {
   text-align: center;
 }
-.wrap{
+.wrap {
   position: relative;
   top: 50%;
   transform: translateY(-50%);

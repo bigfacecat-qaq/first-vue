@@ -17,9 +17,9 @@
             <div class="avatar"><el-avatar :src="userImg" /></div>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item command="a">Action 1</el-dropdown-item>
-                <el-dropdown-item command="b">Action 2</el-dropdown-item>
-                <el-dropdown-item command="c">Action 3</el-dropdown-item>
+                <el-dropdown-item command="a">Center</el-dropdown-item>
+                <el-dropdown-item command="b">Github</el-dropdown-item>
+                <el-dropdown-item command="c">Exit</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
