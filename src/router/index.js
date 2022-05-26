@@ -22,7 +22,7 @@ const routes = [{
         children: [{
             path: '',
             component: () =>
-                import ('../components/HomeMain.vue'),
+                import ('../components/MainPrivacy.vue'),
         }]
     }
 ]
