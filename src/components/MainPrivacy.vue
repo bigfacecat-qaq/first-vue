@@ -6,7 +6,7 @@
   </el-row>
   <el-row justify="center">
     <el-col :span="12">
-      <div class="detail">404</div>
+      <div class="detail">不可以看哦！！</div>
     </el-col>
   </el-row>
   <el-row justify="center">
