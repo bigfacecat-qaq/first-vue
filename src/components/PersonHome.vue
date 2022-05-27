@@ -28,8 +28,8 @@
           <div>今天你完成了多少呢?</div>
         </template>
         <div class="demo-progress">
-          <div>昨日遗留 <el-progress :percentage="50" /></div>
-
+          昨日遗留
+          <el-progress :percentage="50" />
           今日任务
           <el-progress :percentage="100" :format="format" />
           代办事项
@@ -42,7 +42,70 @@
       </el-card>
     </el-col>
     <el-col :span="16">
-      <div class="test"></div>
+      <el-space wrap :fill="true" :size="20">
+        <el-row :gutter="15">
+          <el-col :span="8">
+            <el-card shadow="hover" :body-style="{ padding: 0 }">
+              <el-row>
+                <el-col :span="12">
+                  <div class="wrap">
+                    <el-icon color="white" :size="8 * 8"><Avatar /></el-icon>
+                  </div>
+                </el-col>
+                <el-col :span="12">
+                  <div class="content">
+                    <span>昨日游戏时间</span>
+                    <span>24h</span>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+          <el-col :span="8">
+            <el-card shadow="hover" :body-style="{ padding: 0 }">
+              <el-row>
+                <el-col :span="12">
+                  <div class="wrap">
+                    <el-icon color="white" :size="8 * 8"><ForkSpoon /></el-icon>
+                  </div>
+                </el-col>
+                <el-col :span="12">
+                  <div class="content">
+                    <span>昨日工作时间</span>
+                    <span>0h</span>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+          <el-col :span="8">
+            <el-card shadow="hover" :body-style="{ padding: 0 }">
+              <el-row>
+                <el-col :span="12">
+                  <div class="wrap">
+                    <el-icon color="white" :size="8 * 8"><Warning /></el-icon>
+                  </div>
+                </el-col>
+                <el-col :span="12">
+                  <div class="content">
+                    <span>昨日偷懒时间</span>
+                    <span>12h</span>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <el-card shadow="hover">
+              <template #header>
+                items of today
+              </template>
+            </el-card>
+          </el-col>
+        </el-row>
+      </el-space>
     </el-col>
   </el-row>
 </template>
@@ -59,6 +122,18 @@ export default {
 </script>
 
 <style scoped>
+.wrap {
+  background: skyblue;
+  padding: 1vh;
+  text-align: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .demo-progress {
   display: flex;
   flex-direction: column;
@@ -68,13 +143,6 @@ export default {
 }
 .bottom {
   margin-top: 20px;
-}
-.test {
-  min-height: 500px;
-  background: #009c9c;
-}
-.in {
-  background: skyblue;
 }
 .card-header {
   display: flex;
