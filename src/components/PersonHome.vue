@@ -1,48 +1,51 @@
+//
+其实个人中心中的每块内容可以单独做一个组件减少代码量，但开始并没分开之后有时间再拆分。
 <template>
   <el-row :gutter="20">
     <el-col :span="8">
-      <el-card shadow="hover">
-        <template #header>
+      <el-space  wrap :fill="true" :size="20">
+        <el-card shadow="hover">
+          <template #header>
+            <el-row :gutter="10">
+              <el-col :span="8">
+                <el-avatar
+                  :size="'large'"
+                  src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+              /></el-col>
+              <el-col :span="16" class="user-name">
+                <span>Tom Tom</span>
+              </el-col>
+            </el-row>
+          </template>
           <el-row :gutter="10">
-            <el-col :span="8">
-              <el-avatar
-                :size="'large'"
-                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-            /></el-col>
-            <el-col :span="16" class="user-name">
-              <span>Tom Tom</span>
-            </el-col>
+            <el-col :span="8">上次登录时间:</el-col>
+            <el-col :span="16">85-52-52</el-col>
           </el-row>
-        </template>
-        <el-row :gutter="10">
-          <el-col :span="8">上次登录时间:</el-col>
-          <el-col :span="16">85-52-52</el-col>
-        </el-row>
-        <el-row :gutter="10" class="bottom">
-          <el-col :span="8">上次登录地点:</el-col>
-          <el-col :span="16">召唤师峡谷</el-col>
-        </el-row>
-      </el-card>
-      <el-card class="jindu" shadow="hover">
-        <template #header>
-          <div>今天你完成了多少呢?</div>
-        </template>
-        <div class="demo-progress">
-          昨日遗留
-          <el-progress :percentage="50" />
-          今日任务
-          <el-progress :percentage="100" :format="format" />
-          代办事项
-          <el-progress :percentage="100" status="success" />
-          今日学习
-          <el-progress :percentage="100" status="warning" />
-          Tips
-          <el-progress :percentage="50" status="exception" />
-        </div>
-      </el-card>
+          <el-row :gutter="10" class="bottom">
+            <el-col :span="8">上次登录地点:</el-col>
+            <el-col :span="16">召唤师峡谷</el-col>
+          </el-row>
+        </el-card>
+        <el-card class="jindu" shadow="hover">
+          <template #header>
+            <div>今天你完成了多少呢?</div>
+          </template>
+          <div class="demo-progress">
+            昨日遗留
+            <el-progress :percentage="50" />
+            今日任务
+            <el-progress :percentage="100" :format="format" />
+            代办事项
+            <el-progress :percentage="100" status="success" />
+            今日学习
+            <el-progress :percentage="100" status="warning" />
+            Tips
+            <el-progress :percentage="50" status="exception" />
+          </div>
+        </el-card>
+      </el-space>
     </el-col>
     <el-col :span="16">
-      <el-space wrap :fill="true" :size="20">
         <el-row :gutter="15">
           <el-col :span="8">
             <el-card shadow="hover" :body-style="{ padding: 0 }">
@@ -99,13 +102,16 @@
         <el-row>
           <el-col :span="24">
             <el-card shadow="hover">
-              <template #header>
-                items of today
-              </template>
+              <template #header> items of today </template>
+              <el-scrollbar height="100%">
+                <p v-for="item in 20" :key="item" class="scrollbar-demo-item">
+                  {{ item }}
+                </p>
+              </el-scrollbar>
             </el-card>
           </el-col>
         </el-row>
-      </el-space>
+
     </el-col>
   </el-row>
 </template>
@@ -139,7 +145,7 @@ export default {
   flex-direction: column;
 }
 .jindu {
-  margin-top: 30px;
+  height: 100%;
 }
 .bottom {
   margin-top: 20px;
