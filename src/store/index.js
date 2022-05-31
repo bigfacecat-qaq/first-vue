@@ -2,12 +2,16 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
-        userName: 'admin',
-        password: 123456,
-        
+        tips:1
     },
     getters: {},
-    mutations: {},
-    actions: {},
+    mutations: {
+        add(state){
+            state.tips++
+        }
+    },
+    actions: {
+        
+    },
     modules: {}
 })
