@@ -33,7 +33,7 @@
           昨日遗留
           <el-progress :percentage="50" />
           今日任务
-          <el-progress :percentage="100" :format="format" />
+          <el-progress :percentage="progress" :format="format" />
           代办事项
           <el-progress :percentage="100" status="success" />
           今日学习
@@ -98,10 +98,38 @@
         </el-col>
       </el-row>
       <el-card shadow="hover" class="items">
-        <template #header> items of today </template>
+        <template #header>
+          <div class="items-title">Items of today</div>
+        </template>
         <el-button @click="add">Add Item</el-button>
-        <el-scrollbar  max-height="280px" style="margin-top:10px" >
-          <el-input placeholder="Please input" v-for="tip in tips" :key="tip"/>
+        <el-scrollbar max-height="240px" style="margin-top: 10px">
+          <el-row
+            v-for="(tip, index) in tips"
+            :key="tip"
+            style="margin-top: 5px"
+          >
+            <el-col :span="20"
+              ><el-input
+                placeholder="Please input"
+                v-model="tip.input"
+                :disabled="tip.state"
+            /></el-col>
+            <el-col :span="4"
+              ><div style="text-align: center">
+                <el-button
+                  type="primary"
+                  :icon="Check"
+                  circle
+                  @click="changeState(index)"
+                />
+                <el-button
+                  type="primary"
+                  :icon="Edit"
+                  circle
+                  @click="write(index)"
+                /></div
+            ></el-col>
+          </el-row>
         </el-scrollbar>
       </el-card>
     </el-col>
@@ -109,27 +137,44 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-import { useStore } from 'vuex'
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { Check, Edit } from "@element-plus/icons-vue";
 export default {
   name: "PersonHome",
   setup() {
     const format = (percentage) =>
       percentage === 100 ? "Over" : `${percentage}%`;
-    const store = useStore()
-    const tips = computed(() => store.state.tips)
-    function add(){
-      store.commit("add")
+    const store = useStore();
+    const tips = computed(() => store.state.tips);
+    const progress = computed(() => (100 * store.getters.progress).toFixed());
+    function add() {
+      store.commit("add");
     }
-    return { format , tips,add};
+    function changeState(index) {
+      if (tips.value[index].state == false) {
+        store.commit("changeState", index);
+      }
+    }
+    function write(index) {
+      if (tips.value[index].state == true) {
+        store.commit("write", index);
+      }
+    }
+    return { format, tips, add, Check, changeState, progress, Edit, write };
   },
 };
 </script>
 
 <style scoped>
+.items-title {
+  text-align: center;
+  font-family: arial;
+  font-size: 1.5em;
+}
 .items {
   margin-top: 10px;
-  height: 365px;
+  height: 370px;
 }
 .time {
   height: 80px;
