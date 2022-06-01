@@ -134,6 +134,16 @@
       </el-card>
     </el-col>
   </el-row>
+  <el-row style="margin-top: 10px">
+    <el-col
+      ><div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati quia
+        architecto repellendus inventore non, quibusdam reiciendis assumenda
+        laborum impedit sunt, odio reprehenderit similique numquam consequatur
+        laboriosam enim aliquam eos nemo.
+      </div></el-col
+    >
+  </el-row>
 </template>
 
 <script>

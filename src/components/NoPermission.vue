@@ -6,7 +6,7 @@
   </el-row>
   <el-row justify="center">
     <el-col :span="12">
-      <div class="detail">不可以看哦！！</div>
+      <div class="detail">不可以看哦！！只有以admin为用户名登录进来才可以看</div>
     </el-col>
   </el-row>
   <el-row justify="center">
@@ -49,7 +49,7 @@ export default {
 }
 .detail {
   height: 5rem;
-  font-size: 2rem;
+  font-size: 1.5em;
   text-align: center;
 }
 .btn {

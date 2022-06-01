@@ -52,6 +52,7 @@ export default {
     });
     const router = useRouter();
     const onSubmit = () => {
+      window.localStorage.setItem("user",formLabelAlign.user)
       router.push({ path: "/home" });
     };
     
